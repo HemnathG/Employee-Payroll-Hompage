@@ -31,7 +31,7 @@ const createInnerHtml = () => {
 
     innerHtml = `${innerHtml}
       <tr>
-        <td><img class="profile" src="${employeePayrollData._profileImage}" alt="Ellipse-1"></td>
+        <td><img class="profile" src="${employeePayrollData._profileImage}" alt="Ellipse-1.png"></td>
         <td>${employeePayrollData._name}</td>
         <td>${employeePayrollData._gender}</td>
         <td>${getDepartmentHtml(employeePayrollData._department)}</td>
@@ -74,5 +74,5 @@ const update = (node) => {
   if (!employeePayrollData)
     return;
   localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
-  window.location.replace("../pages/payroll_form.html");
+  window.location.replace(site_properties.add_employee_payroll_page);
 };
