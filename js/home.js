@@ -31,7 +31,7 @@ const createInnerHtml = () => {
 
     innerHtml = `${innerHtml}
       <tr>
-        <td><img class="profile" src="${employeePayrollData._profileImage}" alt="profile_img-1"></td>
+        <td><img class="profile" src="${employeePayrollData._profileImage}" alt="Ellipse-1"></td>
         <td>${employeePayrollData._name}</td>
         <td>${employeePayrollData._gender}</td>
         <td>${getDepartmentHtml(employeePayrollData._department)}</td>
@@ -67,4 +67,12 @@ const remove = (node) => {
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
   document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
   createInnerHtml();
+};
+
+const update = (node) => {
+  let employeePayrollData = employeePayrollDataList.find(employeeData => employeeData._id == node.id);
+  if (!employeePayrollData)
+    return;
+  localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
+  window.location.replace("../pages/payroll_form.html");
 };
